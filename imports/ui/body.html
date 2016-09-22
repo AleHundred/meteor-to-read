@@ -1,0 +1,31 @@
+<head>
+  <title>To Read Application</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>To Read List ({{unreadCount}})</h1>
+      <label class="hide-read">
+        <input type="checkbox" name="read">
+        Hide Read Books
+      </label>
+      {{> loginButtons}}
+
+    </header>
+    
+    {{#if currentUser}}
+      <form class="new-book">
+        <input type="text" name="title" placeholder="Book Title" required/>
+        <input type="text" name="author" placeholder="Book Author" required/>
+        <button type="submit">add</button>
+      </form>
+    {{/if}}
+
+    <ul>
+      {{#each books}}
+        {{> book}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
